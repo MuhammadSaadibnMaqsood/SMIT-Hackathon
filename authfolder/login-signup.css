@@ -1,0 +1,324 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tektur:wght@400..900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  /* Setting base color to a light grey instead of pure white for better aesthetics */
+  color: #f0f0f0;
+}
+.font-secondary {
+  font-family: "Tektur", sans-serif;
+}
+.font-primary {
+  font-family: "Poppins", sans-serif;
+}
+
+.main-container {
+  background-color: #1a1a1a;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  flex-direction: column;
+}
+
+.login-form {
+  width: 70vw;
+  max-width: 900px;
+  height: 70vh;
+  max-height: 500px;
+  border-radius: 12px;
+  display: flex;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.left {
+  width: 50%;
+  height: 100%;
+  animation: left-div-animation 1s ease-out forwards;
+}
+
+.left img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- RIGHT SIDE (Form) (Unchanged) --- */
+
+.right {
+  width: 50%;
+  height: 100%;
+  background-color: #2c2c2c;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  animation: right-div-animation 1s ease-out forwards;
+}
+
+/* --- BRANDING SECTION (Unchanged) --- */
+
+.branding {
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: center;
+  padding: 0px 0px 10px 0px;
+}
+
+.logo {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.branding h1 {
+  color: white;
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.branding2 h1 {
+  /* --- GRADIENT TEXT IMPLEMENTATION --- */
+  font-size: 1.8rem; /* Updated Font Size */
+  font-weight: 600;
+  /* letter-spacing: 1px; */
+
+  /* Apply the gradient background */
+  background: linear-gradient(
+    90deg,
+    #c9c9ff 10%,
+    /* Lightest point (top/left) */ #a0a0ff 50%,
+    /* Mid point */ #53f 100% /* Accent color (bottom/right) */
+  );
+  /* Clip the background to the text area */
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* Make the text color transparent so the gradient shows through */
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+
+  /* Optional: Add a subtle text shadow for a glow effect */
+  text-shadow: 0 0 5px rgba(160, 160, 255, 0.5);
+  /* --- END GRADIENT --- */
+}
+
+/* --- FORM SECTION --- */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Increased gap for label movement */
+}
+
+/* --- FLOATING LABEL STYLES --- */
+
+.username-input,
+.password-input {
+  /* Critical: Set position to relative to contain the absolutely positioned label */
+  position: relative;
+  padding-top: 15px; /* Create space for the label when it moves up */
+}
+
+.username-input label,
+.password-input label {
+  position: absolute;
+  top: 20px;
+  left: 15px;
+  font-size: 1rem;
+  color: #aaa;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.inputs input {
+  width: 100%;
+  padding: 8px 12px; /* reduced height */
+  font-size: 0.9rem;
+
+  background-color: #444;
+  border: none;
+  border-radius: 6px;
+  color: white;
+
+  outline: none;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.inputs input:focus + label {
+  top: 0px;
+  font-size: 0.8rem;
+  color: #53f;
+  background-color: #2c2c2c;
+  padding: 0 5px;
+  transform: translateX(-5px);
+}
+
+.inputs input:not(:placeholder-shown) + label {
+  top: 0px;
+  font-size: 0.8rem;
+  color: #aaa;
+  background-color: #2c2c2c;
+  padding: 0 5px;
+  transform: translateX(-5px);
+}
+
+.inputs input:focus {
+  background-color: #555;
+  box-shadow: 0 0 0 2px #53f;
+}
+
+.form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #53f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+  letter-spacing: 0.5px;
+}
+
+.form button:hover {
+  background-color: #6a4ff5;
+}
+
+.form button:active {
+  transform: scale(0.99);
+}
+
+/* --- KEYFRAME ANIMATIONS (Unchanged) --- */
+
+@keyframes left-div-animation {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes right-div-animation {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .login-form {
+    width: 90vw;
+    height: auto;
+    max-height: none;
+    flex-direction: column;
+  }
+
+  .left {
+    display: none; /* hide image for tablets */
+  }
+
+  .right {
+    width: 100%;
+    height: auto;
+    padding: 25px;
+  }
+
+  .branding h1 {
+    font-size: 2.2rem;
+  }
+
+  .branding2 h1 {
+    font-size: 1.3rem;
+  }
+
+  .inputs input {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+
+  .form button {
+    padding: 10px;
+    font-size: 1rem;
+  }
+}
+
+/* ===========================================
+   RESPONSIVE MOBILE STYLING (480px)
+   =========================================== */
+@media screen and (max-width: 480px) {
+  .main-container {
+    padding: 20px;
+  }
+
+  .login-form {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    box-shadow: none;
+  }
+
+  .right {
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .branding h1 {
+    font-size: 1.8rem;
+  }
+
+  .branding2 h1 {
+    font-size: 1.2rem;
+  }
+
+  /* Inputs smaller */
+  .inputs input {
+    padding: 7px 10px;
+    font-size: 0.85rem;
+  }
+
+  /* Labels adjust for mobile */
+  .username-input label,
+  .password-input label {
+    top: 18px;
+    font-size: 0.85rem;
+  }
+
+  /* Button smaller */
+  .form button {
+    padding: 9px;
+    font-size: 0.95rem;
+  }
+}
+
+.page-trasition span a {
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+}

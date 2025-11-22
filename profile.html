@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile - AURA Feed</title>
+
+    <link rel="stylesheet" href="profile.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="./index.html" class="logo">
+        <img class="logoimg" src="./assets/logo.png" alt="" />
+        <h1>AURA-FEED</h1>
+      </a>
+      <div class="nav-right">
+        <div class="logout-btn">
+          <button onclick="handleProfileImg()">
+            <img id="userImg" src="" alt="Profile" />
+          </button>
+          <div id="drop-down" class="drop-down">
+            <button><a href="./profile.html">Profile</a></button>
+            <button id="logoutBtn">Logout</button>
+          </div>
+        </div>
+        <div class="darkMode-btn" onclick="toggleDarkMode()">
+          <img
+            id="darkModeIcon"
+            src="https://play-lh.googleusercontent.com/T7iJ8gb1bHJzDsOJeRzMqg7ZKcRuVOr6XE5-Uzj0inIcKq4v6l4kKyQTArgxXyha9Ag"
+            alt="Toggle Dark Mode"
+          />
+        </div>
+      </div>
+    </nav>
+
+    <div class="profile-container">
+      <div class="profile-header">
+        <div class="profile-info">
+          <img
+            id="profilePicLarge"
+            src=""
+            alt="Profile Picture"
+            class="profile-pic-large"
+          />
+          <div class="profile-details">
+            <h1 id="profileUsername">Username</h1>
+            <div class="profile-stats">
+              <div class="stat-item">
+                <div class="stat-number" id="postsCount">0</div>
+                <div class="stat-label">Posts</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number" id="totalLikes">0</div>
+                <div class="stat-label">Likes</div>
+              </div>
+            </div>
+            <div class="profile-bio" id="profileBio">
+              No bio yet. Click edit to add one!
+            </div>
+            <button class="edit-bio-btn" onclick="openBioModal()">
+              Edit Bio
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="add-post-section">
+        <button class="add-post-btn" onclick="openPostModal()">
+          Create New Post
+        </button>
+      </div>
+
+      <div class="posts-section">
+        <h2>My Posts</h2>
+        <div class="posts-grid" id="postsGrid">
+          <div class="no-posts">
+            <h3>No posts yet</h3>
+            <p>Share your first moment!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="postModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="modalTitle">Create New Post</h2>
+          <button class="close-btn" onclick="closePostModal()">×</button>
+        </div>
+        <form id="postForm">
+          <div class="form-group">
+            <label for="postCaption">Caption</label>
+            <textarea
+              id="postCaption"
+              placeholder="Write a caption..."
+              required
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label>Upload Image (Optional)</label>
+            <div
+              class="image-upload-area"
+              id="imageUploadArea"
+              onclick="document.getElementById('postImageInput').click()"
+            >
+              <img id="imagePreview" alt="Preview" />
+              <div class="upload-text" id="uploadText">
+                📷 Click to upload an image
+              </div>
+            </div>
+            <input type="file" id="postImageInput" accept="image/*" />
+          </div>
+          <button type="submit" class="submit-post-btn" id="submitBtn">
+            Post
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="bioModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Edit Bio</h2>
+          <button class="close-btn" onclick="closeBioModal()">×</button>
+        </div>
+        <form id="bioForm">
+          <div class="form-group">
+            <label for="bioInput">Bio</label>
+            <textarea
+              id="bioInput"
+              placeholder="Tell us about yourself..."
+              rows="5"
+            ></textarea>
+          </div>
+          <button type="submit" class="submit-post-btn">Save Bio</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="profile.js"></script>
+  </body>
+</html>

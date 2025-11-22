@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AURA Feed</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-left">
+        <div class="logo">
+          <img class="logoimg" src="./assets/logo.png" alt="" />
+          <h1>AURA-FEED</h1>
+        </div>
+      </div>
+      <div class="nav-right">
+        <div class="logout-btn">
+          <button onclick="handleProfileImg()">
+            <img id="userImg" src="" alt="Profile" />
+          </button>
+          <div id="drop-down" class="drop-down">
+            <button><a href="./profile.html">Profile</a></button>
+            <button id="logoutBtn">Logout</button>
+          </div>
+        </div>
+        <div class="darkMode-btn" onclick="toggleDarkMode()">
+          <img
+            id="darkModeIcon"
+            src="https://play-lh.googleusercontent.com/T7iJ8gb1bHJzDsOJeRzMqg7ZKcRuVOr6XE5-Uzj0inIcKq4v6l4kKyQTArgxXyha9Ag"
+            alt="Dark Mode"
+          />
+        </div>
+      </div>
+    </nav>
+
+    <div class="search-section">
+      <div class="search-container">
+        <input
+          type="text"
+          class="search-input"
+          id="searchInput"
+          placeholder="Search posts by content or username..."
+        />
+        <span class="search-icon">🔍</span>
+      </div>
+    </div>
+
+    <div class="posts-container" id="postsContainer">
+      <div class="no-posts">
+        <h2>No posts yet</h2>
+        <p>Be the first to create a post!</p>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
