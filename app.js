@@ -2,12 +2,7 @@
 const loginUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
 if (!loginUser) {
-  console.warn("No loggedInUser found. Creating dummy user for testing.");
-  localStorage.setItem(
-    "loggedInUser",
-    JSON.stringify({ username: "TestUser", profilePic: "" })
-  );
-  window.location.reload();
+  window.location.href = "authfolder/login"
 }
 
 const profileimg = document.getElementById("userImg");
